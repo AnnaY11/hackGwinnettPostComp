@@ -3,69 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Insights</title>
+    <title>Financial Tools Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header -->
     <header>
-        <h1>Financial Insights</h1>
-        <nav>
+        <nav class="navbar">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#calculator">Calculator</a></li>
-                <li><a href="#news">News</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="goalTracker.html">Money Goal Tracker</a></li>
+                <li><a href="investor-quiz.html">Investor Quiz</a></li>
+                <li><a href="stock-prediction.html">Stock Market Prediction</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Home Section -->
-    <section id="home" class="section">
-        <h2>Welcome to Financial Insights</h2>
-        <p>Your go-to platform for financial calculations, trends, and news.</p>
-        <a href="#calculator" class="cta-button">Start Calculating</a>
-    </section>
+    <main>
+        <section class="hero">
+            <h1>Welcome to Your Online Financial Tool Belt!</h1>
+            <p>Take control of your finances with tools to track goals, discover your investor type, and analyze stock trends!</p>
+        </section>
 
-    <!-- Calculator Section -->
-    <section id="calculator" class="section">
-        <h2>Financial Calculator</h2>
-        <form>
-            <label for="principal">Principal Amount ($):</label>
-            <input type="number" id="principal" placeholder="Enter amount" required>
-            
-            <label for="rate">Interest Rate (%):</label>
-            <input type="number" id="rate" placeholder="Enter rate" required>
+        <section class="feature" id="goal-tracker">
+            <h2>Money Goal Tracker</h2>
+            <p>Set, track, and achieve your financial goals with ease. Stay motivated and celebrate your milestones along the way.</p>
+            <a href="goalTracker.html" class="cta-button">Start Tracking Your Goals</a>
+        </section>
 
-            <label for="time">Time (Years):</label>
-            <input type="number" id="time" placeholder="Enter years" required>
+        <section class="feature" id="investor-quiz">
+            <h2>Investor Personality Quiz</h2>
+            <p>Take our quiz to discover what type of stock investor you are and gain insights to make informed decisions.</p>
+            <a href="investor-quiz.html" class="cta-button">Take the Quiz</a>
+        </section>
 
-            <button type="button" onclick="calculate()">Calculate</button>
-        </form>
-        <p id="result"></p>
-    </section>
+        <section class="feature" id="stock-prediction">
+            <h2>Stock Market Prediction Model</h2>
+            <p>Utilize our machine learning model to get the latest predictions for stock market trends and make smarter investment choices.</p>
+            <a href="stock-prediction.html" class="cta-button">Explore Predictions</a>
+        </section>
 
-    <!-- News Section -->
-    <section id="news" class="section">
-        <h2>Latest Financial News</h2>
-        <div class="news-article">
-            <h3>Breaking Down Today's Market</h3>
-            <p>Stay updated with the latest trends and insights from the financial world.</p>
-            <a href="#">Read more</a>
-        </div>
-    </section>
+        <section class="feature" id="interest-calculator">
+            <h2>Simple Interest Calculator</h2>
+            <p>Use our calculator to compare interest rates based on various plans offered by your bank to find the best value.</p>
+            <a href="interest-calculator.html" class="cta-button">Calculate Here</a>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>Follow us on social media:</p>
-        <div class="social-links">
-            <a href="#">Twitter</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Facebook</a>
-        </div>
-        <p>&copy; 2024 Financial Insights</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

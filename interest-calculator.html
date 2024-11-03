@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="calculator-container">
+        <h1>Simple Interest Calculator</h1>
+
+        <div class="calculator-input-container">
+            <input type="number" id="principal" placeholder="Principal Amount" step="0.01" />
+            <input type="number" id="rate" placeholder="Interest Rate (%)" step="0.01" />
+            <input type="number" id="time" placeholder="Time (Years)" step="1" />
+            <button onclick="calculate()">Calculate</button>
+        </div>
+
+        <p id="result">Future Value: $0.00</p>
+    </div>
+
+    <div id="hamburger-icon" onclick="toggleMenu()">&#9776;</div>
+
+
+    <div id="sidebar-menu" class="hidden">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="goalTracker.html">Money Goal Tracker</a></li>
+                <li><a href="investor-quiz.html">Investor Quiz</a></li>
+                <li><a href="stock-prediction.html">Stock Market Prediction</a></li>
+                <li><a href="calculator.html">Interest Calculator</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        function calculate() {
+            let principal = parseFloat(document.getElementById("principal").value);
+            let rate = parseFloat(document.getElementById("rate").value);
+            let time = parseFloat(document.getElementById("time").value);
+            if (isNaN(principal) || isNaN(rate) || isNaN(time) || principal <= 0 || rate <= 0 || time <= 0) {
+                document.getElementById("result").innerText = "Please enter valid values.";
+                return;
+            }
+            let result = principal * (1 + (rate / 100) * time);
+            document.getElementById("result").innerText = "Future Value: $" + result.toFixed(2);
+        }
+
+        function toggleMenu() {
+        document.getElementById("sidebar-menu").classList.toggle("visible");
+    }
+    </script>
+</body>
+</html>

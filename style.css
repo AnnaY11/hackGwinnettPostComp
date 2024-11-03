@@ -7,108 +7,95 @@ body {
     background-color: #f8f9fa;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+h1 {
     text-align: center;
+    margin: 20px 0;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.section {
-    padding: 20px;
-    text-align: center;
-}
-
-.cta-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.cta-button:hover {
-    background-color: #0056b3;
-}
-
-/* Calculator Section */
-form label, form input, form button {
-    display: block;
-    margin: 10px auto;
-}
-
-form input {
-    width: 80%;
-    padding: 8px;
-}
-
-form button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #218838;
-}
-
-#result {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-/* News Section */
-.news-article {
-    background-color: #e9ecef;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-}
-
-.news-article h3 {
-    margin: 0;
-}
-
-footer {
+/* Navbar Styles */
+.navbar {
     background-color: #333;
-    color: #fff;
     padding: 10px;
     text-align: center;
 }
 
-.social-links a {
-    color: #007bff;
-    margin: 0 5px;
-    text-decoration: none;
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
-.social-links a:hover {
-    text-decoration: underline;
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 50px;
+    text-align: center;
+    background-color: gray;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin: 10px 0 20px;
+}
+
+.cta-button {
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background-color: darkgray;
+}
+
+/* Feature Section */
+.feature {
+    padding: 40px;
+    text-align: center;
+    margin: 20px auto;
+    background-color: #fff;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
 }
 
 /* Progress Bar Style */
@@ -127,48 +114,7 @@ footer {
     border-radius: 25px;
 }
 
-#amount {
-    padding: 10px;
-    width: 200px;
-    margin-top: 10px;
-}
-
-button {
-    padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-/* Confetti Style */
-#confetti-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; 
-    overflow: hidden;
-}
-
-/* Confetti piece style */
-.confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: var(--color, red); 
-    opacity: 0.8;
-    border-radius: 50%;
-    animation: fall linear forwards;
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* Styles for individual goals */
+/* Goal Styles */
 .goal {
     background-color: #ffffff;
     border: 1px solid #ddd;
@@ -201,7 +147,7 @@ button {
 
 .goal button {
     padding: 8px 12px;
-    background-color: #007bff;
+    background-color: gray;
     color: white;
     border: none;
     border-radius: 5px;
@@ -209,12 +155,7 @@ button {
 }
 
 .goal button:hover {
-    background-color: #0056b3;
-}
-
-h1 {
-    text-align: center;
-    margin: 20px 0;
+    background-color: darkgray;
 }
 
 .goal-input-container {
@@ -237,12 +178,217 @@ h1 {
     padding: 10px 15px;
     font-size: 1em;
     cursor: pointer;
-    background-color: #007bff;
+    background-color: gray;
     color: white;
     border: none;
     border-radius: 5px;
 }
 
 .goal-input-container button:hover {
-    background-color: #0056b3;
+    background-color: darkgray;
+}
+
+/* Confetti Style */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color, red);
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Grayed-out Style for Completed Goals */
+.grayed-out {
+    background-color: #e0e0e0;
+    color: #888;
+    text-align: center;
+}
+
+/* Filter Container */
+.filter-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.filter-container label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.filter-container select {
+    padding: 5px;
+    font-size: 1em;
+}
+
+/* Calculator Styles */
+.calculator-container {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 40px auto;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.calculator-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.calculator-input-container input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.calculator-input-container button {
+    padding: 10px;
+    font-size: 1em;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calculator-input-container button:hover {
+    background-color: dimgray;
+}
+
+#result {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+    color: black;
+}
+
+/* Sidebar Menu (Hamburger Icon) */
+#hamburger-icon {
+    font-size: 24px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: gray;
+    color: white;
+    padding-top: 60px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+#sidebar-menu.visible {
+    transform: translateX(0);
+}
+
+#sidebar-menu nav ul {
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+    text-align: right;
+}
+
+#sidebar-menu nav ul li {
+    margin: 20px 0;
+}
+
+#sidebar-menu nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+#sidebar-menu nav ul li a:hover {
+    color: #4caf50;
+}
+
+/* Archived Goals Section */
+.archived-section h3 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.delete-archived {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete-archived:hover {
+    background-color: #e60000;
+}
+
+#news-container {
+    margin: 20px;
+    max-width: 800px;
+}
+
+.article {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.article h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.article p {
+    font-size: 1em;
+    margin: 0.5em 0;
+}
+
+.article a {
+    color: blue;
+    text-decoration: none;
 }
