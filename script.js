@@ -1,3 +1,4 @@
+// Home page js
 function calculate() {
     let principal = document.getElementById("principal").value;
     let rate = document.getElementById("rate").value;
@@ -9,88 +10,79 @@ function calculate() {
 
 // Goal Tracker js
 
-let goal = 0;
-let savedAmount = 0;
+let goals = []; 
 
-// Milestone code
-let milestonesReached = {
-    quarter: false,
-    third: false,
-    half: false,
-    threeQuarters: false,
-    goal: false
-};
+// Function to add a new goal
+function addGoal() {
+    const name = document.getElementById("goal-name").value;
+    const targetAmount = parseInt(document.getElementById("goal-amount").value);
 
-function setGoal() {
-    let goalInput = document.getElementById("goal").value;
-    goal = parseInt(goalInput);
-
-    if (isNaN(goal) || goal <= 0) {
-        alert("Please enter a valid goal amount.");
+    if (!name || isNaN(targetAmount) || targetAmount <= 0) {
+        alert("Please enter a valid goal name and amount.");
         return;
     }
 
-    document.getElementById("goal-text").innerText = `Goal: $${goal}`;
-    document.getElementById("progress-text").innerText = `Progress: $${savedAmount} / $${goal}`;
-    document.getElementById("progress-bar").style.width = "0%";
-    savedAmount = 0;
-    
-    // Reset milestone tracking
-    milestonesReached = {
-        quarter: false,
-        third: false,
-        half: false,
-        threeQuarters: false,
-        goal: false
+    const newGoal = {
+        id: Date.now(), \
+        name: name,
+        targetAmount: targetAmount,
+        savedAmount: 0
     };
+
+    goals.push(newGoal);
+    displayGoals();
+
+    document.getElementById("goal-name").value = "";
+    document.getElementById("goal-amount").value = "";
 }
 
-function updateProgress() {
-    if (goal <= 0) {
-        alert("Please set a goal amount first.");
-        return;
-    }
+// Function to display all goals
+function displayGoals() {
+    const container = document.getElementById("goals-container");
+    container.innerHTML = ""; // Clear existing content
 
-    let amountInput = document.getElementById("amount").value;
-    let amount = parseInt(amountInput);
+    goals.forEach(goal => {
+        // Create a new goal element
+        const goalElement = document.createElement("div");
+        goalElement.className = "goal";
+        
+        goalElement.innerHTML = `
+            <h3>${goal.name}</h3>
+            <p>Saved: $${goal.savedAmount} out of $${goal.targetAmount}</p>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: ${Math.min((goal.savedAmount / goal.targetAmount) * 100, 100)}%"></div>
+            </div>
+            <input type="number" placeholder="Enter amount to add" oninput="updateGoal(${goal.id}, this.value)" />
+            <button onclick="addAmount(${goal.id})">Add Amount</button>
+        `;
 
-    if (isNaN(amount) || amount <= 0) {
+        container.appendChild(goalElement);
+    });
+}
+
+// Function to add a specified amount to a goal by ID
+function addAmount(id) {
+    const amountInput = document.querySelector(`input[oninput="updateGoal(${id}, this.value)"]`).value;
+    const amount = parseInt(amountInput);
+
+    const goal = goals.find(g => g.id === id);
+
+    if (!goal || isNaN(amount) || amount <= 0) {
         alert("Please enter a valid amount.");
         return;
     }
 
-    savedAmount += amount;
-    if (savedAmount > goal) {
-        savedAmount = goal;
+    document.getElementById("add-to-goal-sound").play();
+
+    goal.savedAmount += amount;
+    document.querySelector(`input[oninput="updateGoal(${id}, this.value)"]`).value = ""; 
+
+    if (goal.savedAmount >= goal.targetAmount) {
+        document.getElementById("goal-sound").play(); 
+        createConfetti(); 
     }
 
-    let progressPercentage = (savedAmount / goal) * 100;
-    document.getElementById("progress-bar").style.width = progressPercentage + "%";
-    document.getElementById("progress-text").innerText = `Progress: $${savedAmount} / $${goal}`;
-
-    checkMilestones();
-
-    document.getElementById("amount").value = ""; // Clear the input field
-}
-
-function checkMilestones() {
-    if (savedAmount >= goal && !milestonesReached.goal) {
-        document.getElementById("goal-sound").play();
-        createConfetti();
-        milestonesReached.goal = true;
-    } else if (savedAmount >= 0.75 * goal && !milestonesReached.threeQuarters) {
-        document.getElementById("three-quarters-sound").play();
-        milestonesReached.threeQuarters = true;
-    } else if (savedAmount >= 0.5 * goal && !milestonesReached.half) {
-        document.getElementById("half-sound").play();
-        milestonesReached.half = true;
-    } else if (savedAmount >= 0.333 * goal && !milestonesReached.third) {
-        document.getElementById("third-sound").play();
-        milestonesReached.third = true;
-    } else if (savedAmount >= 0.25 * goal && !milestonesReached.quarter) {
-        document.getElementById("quarter-sound").play();
-        milestonesReached.quarter = true;
-    }
+    displayGoals(); 
 }
 
 // Confetti Code
@@ -114,4 +106,3 @@ function createConfetti() {
         });
     }
 }
-

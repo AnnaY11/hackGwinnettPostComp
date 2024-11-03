@@ -9,25 +9,16 @@
 <body>
 
     <h1>Money Goal Tracker</h1>
-    <input type="number" id="goal" placeholder="Set your goal amount" />
-    <button onclick="setGoal()">Set Goal</button>
-
-    <p id="goal-text">Goal: $0</p>
     
-    <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
+]    <div class="goal-input-container">
+        <input type="text" id="goal-name" placeholder="Goal Name" />
+        <input type="number" id="goal-amount" placeholder="Goal Amount" />
+        <button onclick="addGoal()">Add Goal</button>
     </div>
-    
-    <input type="number" id="amount" placeholder="Enter amount saved" />
-    <button onclick="updateProgress()">Add Amount</button>
-    
-    <p id="progress-text">Progress: $0 / $0</p>
 
-    <!-- Audio Elements for Milestone Sounds -->
-    <audio id="quarter-sound" src="sounds/chaChing.mp3" preload="auto"></audio>
-    <audio id="third-sound" src="sounds/chaChing.mp3" preload="auto"></audio>
-    <audio id="half-sound" src="sounds/chaChing.mp3" preload="auto"></audio>
-    <audio id="three-quarters-sound" src="sounds/chaChing.mp3" preload="auto"></audio>
+]    <div id="goals-container"></div>
+
+\    <audio id="add-to-goal-sound" src="sounds/chaChing.mp3" preload="auto"></audio>
     <audio id="goal-sound" src="sounds/clap.mp3" preload="auto"></audio>
 
     <div id="confetti-container"></div>
@@ -35,4 +26,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
