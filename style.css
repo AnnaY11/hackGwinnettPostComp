@@ -107,6 +107,65 @@ footer {
     text-decoration: none;
 }
 
+
 .social-links a:hover {
     text-decoration: underline;
+}
+
+/* Progress Bar Style */
+
+.progress-container {
+    width: 80%;
+    background-color: #f3f3f3;
+    border-radius: 25px;
+    margin: 20px auto;
+    height: 30px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #4caf50;
+    border-radius: 25px;
+}
+
+#amount {
+    padding: 10px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Confetti Style */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    overflow: hidden;
+}
+
+/* Confetti piece style */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color, red); 
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
